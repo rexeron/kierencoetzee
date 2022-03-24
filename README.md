@@ -21,7 +21,7 @@
 cd /srv
 sudo mkdir kierencoetzee
 cd kierencoetzee
-sudo git clone https://github.com/carderbeeuk/kierencoetzee.git .
+sudo git clone https://github.com/rexeron/kierencoetzee.git .
 ```
 
 ### Add and update permissions
