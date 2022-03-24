@@ -7,7 +7,7 @@
 <article class="content row">
     <div class="col-md-12">
         <h1>{{ post.title }}<span class="pinkify">.</span></h1>
-        <p class="post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.last_updated|date:"d M Y" }}</p>
+        <p class="post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.created|date:"d M Y" }}</p>
         <p class="post-blurb">{{ post.blurb }}</p>
         {% autoescape off %}
         <div class="post-content">{{ post.content }}</div>

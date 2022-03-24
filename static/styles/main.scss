@@ -1,5 +1,7 @@
-$heading-font-family: 'Rockwell';
-$paragraph-font-family: 'Helvetica';
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+
+$heading-font-family: 'Arvo', serif;
+$paragraph-font-family: 'Helvetica', Arial, sans-serif;
 $dark-blue: #024059;
 $salmon: #f2766b;
 $light-yellow: #f2cc85;
@@ -87,7 +89,7 @@ header {
 
             li {
                 display: inline;
-                margin: 0 25px;
+                margin: 0 15px;
             }
         }
     }
@@ -97,10 +99,6 @@ header {
     max-width: 900px;
     margin: 0 auto;
     padding: 120px 0 50px 0;
-
-    &.get-in-touch {
-        margin-bottom: 30px;
-    }
 
     &.home {
         padding-top: 33vh;
@@ -115,7 +113,7 @@ header {
     .hello {
         font-family: $heading-font-family;
         font-weight: bold;
-        font-size: 6em;
+        font-size: 5em;
         line-height: 75px;
     }
 
@@ -128,7 +126,7 @@ header {
     }
 
     .post-snippet {
-        padding: 25px 0;
+        padding: 25px 0 0 0;
     }
 
     .post-date {
@@ -202,4 +200,15 @@ footer .content {
     padding: 50px 0;
     border-top: 1px solid lightgrey;
     text-align: right;
+}
+
+@media screen and (max-width: 767px) {
+    .hello {
+        text-align: left !important;
+        padding-bottom: 35px;
+    }
+
+    .home {
+        padding-top: 20vh !important;
+    }
 }
