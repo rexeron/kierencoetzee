@@ -27,7 +27,7 @@ urlpatterns = [
     # my routes
     path(r'', home_view, name='home'),
     path(r'blog/', include('blog.urls')),
-    # path(r'about/', include('about.urls')),
+    path(r'about/', include('about.urls')),
 ]
 
 # https://github.com/summernote/django-summernote
