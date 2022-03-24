@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 
+{% block title %}{{ post.title }}{% endblock %}
+
 {% block content %}
 
 <article class="content row">
     <div class="col-md-12">
         <h1>{{ post.title }}<span class="pinkify">.</span></h1>
-        <p>{{ post.blurb }}</p>
+        <p class="post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.last_updated|date:"d M Y" }}</p>
+        <p class="post-blurb">{{ post.blurb }}</p>
         {% autoescape off %}
-        <div>{{ post.content }}</div>
+        <div class="post-content">{{ post.content }}</div>
         {% endautoescape %}
+    </div>
+</article>
+
+<article class="about-me content row">
+    <div class="col-md-12">
+        <h3>About the author<span class="pinkify">.</span></h3>
+        <p>Kieren is a professional web application developer based in London. He has worked in the field since 2011, has a BA degree in interactive development from <a target="_blank" href="https://www.openwindow.co.za">The Open Window University</a> in Pretoria, South Africa. He likes watching Formula 1 races and enjoys go-karting.</p>
     </div>
 </article>
 

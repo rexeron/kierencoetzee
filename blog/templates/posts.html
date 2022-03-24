@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
+{% block title %}Kieren Coetzee Blog{% endblock %}
+
 {% block content %}
 
 <article class="content row">
-    <div class="col-md-9">
+    <div class="col-md-12">
         <h1>My Blog Posts<span class="pinkify">.</span></h1>
         <p>This is a place where I try and document some useful stuff related to web development.</p>
         {% for post in posts %}
         <div class="post-snippet">
             <h3><a href="/blog/{{ post.permalink }}">{{ post.title }}</a></h3>
+            <p class="post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.last_updated|date:"d M Y" }}</p>
             <p>{{ post.blurb }}</p>
-            <p>{{ post.last_updated|date:"d M Y" }}</p>
         </div>
         {% endfor %}
     </div>

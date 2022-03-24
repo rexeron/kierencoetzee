@@ -6,7 +6,7 @@
     <div class="col-md-4 text-right hello">HE<br/>LLO<span class="pinkify">,</span></div>
     <div class="col-md-8">
         <h1 class="home-h1">My name is <strong>Kieren</strong>.</h1>
-        <p class="home-p">I'm a <strong>web application developer</strong> focusing on interaction development and data analysis.
+        <p class="home-p">I'm a <strong>web application developer</strong> focusing on interactive development and data analysis.
         I built this website for you to meet the virtual me, to get hold of me if you ever need,
         and to read some lame blog posts about web development - if that's the sort of
         thing you're into.</p>
@@ -17,7 +17,7 @@
 <div class="vertical-line"></div>
 
 <article class="content row get-in-touch">
-    <div class="col-md-7">
+    <div class="col-md-8">
         <h2 class="main-cta-heading">Let's work together<span class="pinkify">.</span></h2>
         <div class="cheeky-underline"></div>
         <p>From concept to deployment, I can help get your applications done. I have experience with design, UX, front and back end development, and application deployment. If you have any questions or think that we would make a good team, then reach out.</p>
@@ -26,14 +26,13 @@
 </article>
 
 <article class="content row">
-    <div class="col-md-9">
+    <div class="col-md-12">
         <h2>Recent posts<span class="pinkify">.</span></h2>
-        <p>Here are some of my latest posts to the lame blog.</p>
         {% for post in recent_posts %}
         <div class="post-snippet">
             <h3><a href="/blog/{{ post.permalink }}">{{ post.title }}</a></h3>
+            <p class="post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.last_updated|date:"d M Y" }}</p>
             <p>{{ post.blurb }}</p>
-            <p>{{ post.last_updated|date:"d M Y" }}</p>
         </div>
         {% endfor %}
     </div>
