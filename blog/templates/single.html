@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<article class="content row">
+    <div class="col-md-12">
+        <h1>{{ post.title }}<span class="pinkify">.</span></h1>
+        <p>{{ post.blurb }}</p>
+        {% autoescape off %}
+        <div>{{ post.content }}</div>
+        {% endautoescape %}
+    </div>
+</article>
+
+{% endblock content %}

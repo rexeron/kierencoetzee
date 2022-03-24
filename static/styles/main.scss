@@ -1,0 +1,160 @@
+$heading-font-family: 'Rockwell';
+$paragraph-font-family: 'Helvetica';
+$dark-blue: #024059;
+$salmon: #f2766b;
+$light-yellow: #f2cc85;
+$very-light-blue: #f4fafc;
+
+* {
+    font-family: $paragraph-font-family;
+    color: $dark-blue;
+    font-size: 16px;
+    line-height: 25px;
+    margin: 0;
+    padding: 0;
+    transition: all 0.1s linear;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $heading-font-family;
+    font-weight: bold;
+}
+
+.home-h1 {
+    font-family: $paragraph-font-family;
+    font-size: 1.2em;
+    margin: 0;
+    line-height: 30px;
+}
+
+.home-p {
+    font-size: 1.2em;
+    line-height: 30px;
+}
+
+strong {
+    font-size: inherit;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+a {
+    color: $dark-blue;
+    font: inherit;
+
+    &:hover {
+        text-decoration: none;
+        color: $salmon;
+    }
+}
+
+.pinkify {
+    color: $salmon;
+    font: inherit;
+}
+
+.odin {
+    margin: 15px;
+    min-height: calc(100vh - 30px);
+    background: $very-light-blue;
+}
+
+header {
+    display: block;
+    position: fixed;
+    top: 0;
+    background: $very-light-blue;
+    z-index: 9001;
+    width: calc(100% - 30px);
+
+    nav {
+        ul {
+            list-style-type: none;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            margin: 0;
+
+            li {
+                display: inline;
+                margin: 0 25px;
+            }
+        }
+    }
+}
+
+.content {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 50px 0;
+
+    &.get-in-touch {
+        margin-bottom: 100px;
+    }
+
+    &.home {
+        padding-top: 33vh;
+    }
+
+    .hello {
+        font-family: $heading-font-family;
+        font-weight: bold;
+        font-size: 6em;
+        line-height: 75px;
+    }
+
+    .cheeky-underline {
+        display: block;
+        height: 3px;
+        width: 80px;
+        background-color: $salmon;
+        margin: 25px 0 30px 0;
+    }
+
+    .post-snippet {
+        padding: 25px 0;
+    }
+}
+
+.rotated-fixed {
+    transform: rotate(-90deg);
+    position: fixed;
+    left: -30px;
+    top: 45vh;
+}
+
+span.scroll {
+    margin: 50px 0 25px 0;
+    font-size: 0.7em;
+    display: block;
+    text-align: center;
+    color: $light-yellow;
+}
+
+.vertical-line {
+    display: block;
+    height: calc(55vh - 25px);
+    width: 1px;
+    background-color: $light-yellow;
+    margin: 0 auto;
+}
+
+button {
+    border: 3px solid $salmon;
+    background: none;
+    border-radius: 9px;
+    padding: 5px 25px;
+    color: $salmon;
+    margin-top: 25px;
+
+    &:hover {
+        background: $salmon;
+        color: white;
+    }
+
+    &:hover  > a {
+        color: white;
+    }
+}

@@ -1,6 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>HE<br/>LLO,</h1>
-<p>My name's Kieren.</p>
+
+<article class="content home row">
+    <div class="col-md-4 text-right hello">HE<br/>LLO<span class="pinkify">,</span></div>
+    <div class="col-md-8">
+        <h1 class="home-h1">My name is <strong>Kieren</strong>.</h1>
+        <p class="home-p">I'm a <strong>web application developer</strong> focusing on interaction development and data analysis.
+        I built this website for you to meet the virtual me, to get hold of me if you ever need,
+        and to read some lame blog posts about web development - if that's the sort of
+        thing you're into.</p>
+    </div>
+</article>
+
+{# <span class="scroll">SCROLL</span> #}
+<div class="vertical-line"></div>
+
+<article class="content row get-in-touch">
+    <div class="col-md-7">
+        <h2 class="main-cta-heading">Let's work together<span class="pinkify">.</span></h2>
+        <div class="cheeky-underline"></div>
+        <p>From concept to deployment, I can help get your applications done. I have experience with design, UX, front and back end development, and application deployment. If you have any questions or think that we would make a good team, then reach out.</p>
+        <button class="reach-out"><a href="mailto:hello@kierencoetzee.com">Get in touch</a></button>
+    </div>
+</article>
+
+<article class="content row">
+    <div class="col-md-9">
+        <h2>Recent posts<span class="pinkify">.</span></h2>
+        <p>Here are some of my latest posts to the lame blog.</p>
+        {% for post in recent_posts %}
+        <div class="post-snippet">
+            <h3><a href="/blog/{{ post.permalink }}">{{ post.title }}</a></h3>
+            <p>{{ post.blurb }}</p>
+            <p>{{ post.last_updated|date:"d M Y" }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</article>
+
 {% endblock content %}

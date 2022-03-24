@@ -26,7 +26,7 @@ urlpatterns = [
 
     # my routes
     path(r'', home_view, name='home'),
-    # path(r'blog/', include('blog.urls')),
+    path(r'blog/', include('blog.urls')),
     # path(r'about/', include('about.urls')),
 ]
 

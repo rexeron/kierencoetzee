@@ -20,6 +20,7 @@ class Post(models.Model):
     status = models.CharField(max_length=16, choices=POST_STATUS_CHOICES, default='DRAFT')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     category = models.ForeignKey(PostCategory, on_delete=models.CASCADE, null=True, blank=True)
+    permalink = models.CharField(max_length=255, null=True)
     created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
 
