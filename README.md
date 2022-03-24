@@ -116,7 +116,7 @@ set up the supervisor config in `/etc/supervisor/conf.d/kierencoetzee.conf`
 ```
 [program:kierencoetzee]
 directory=/srv/kierencoetzee
-command=/srv/kierencoetzee/venv/bin/gunicorn --workers 2 --timeout 300 --bind 127.0.0.1:8040 kierencoetzee:wsgi
+command=/srv/kierencoetzee/venv/bin/gunicorn --workers 2 --timeout 300 --bind 127.0.0.1:8040 kierencoetzee.wsgi
 user=kieren
 autostart=true
 autorestart=true
