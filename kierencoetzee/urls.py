@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from home.views import home_view
-from blog.models import Post
+from blog.models import BlogSitemap
+
+sitemaps = {
+    'blog': BlogSitemap
+}
 
 urlpatterns = [
     # third party specific
@@ -31,15 +34,9 @@ urlpatterns = [
     path(r'', home_view, name='home'),
     path(r'about/', include('about.urls')),
     path(r'blog/', include('blog.urls')),
-    path(r'sitemap.xml', sitemap,
-        {
-            'sitemaps': {
-                'blog': GenericSitemap({
-                    'queryset': Post.objects.all()
-                }, priority=0.6)
-            }
-        },
-        name='django.contrib.sitemaps.views.sitemap'),
+    path(r'sitemap.xml', sitemap, {'sitemaps': sitemaps},
+     name='django.contrib.sitemaps.views.sitemap')
+
 ]
 
 # https://github.com/summernote/django-summernote

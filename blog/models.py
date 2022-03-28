@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.sitemaps import Sitemap
 from django.conf import settings
 from .constants import POST_STATUS_CHOICES, COMMENT_STATUS_CHOICES
 
@@ -32,6 +33,18 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return f'/blog/{self.permalink}'
+
+
+class BlogSitemap(Sitemap):
+    changefreq = "never"
+    priority = 0.6
+    protocol = 'https'
+
+    def items(self):
+        return Post.objects.filter(status='PUBLISHED')
+
+    def lastmod(self, obj):
+        return obj.last_updated
 
 
 class Comment(models.Model):
