@@ -2,6 +2,10 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
+{% block meta %}
+<meta name="description" content="{{ post.blurb }}" />
+{% endblock meta %}
+
 {% block content %}
 
 <article class="content row">
