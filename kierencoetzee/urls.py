@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
+from django.views.generic.base import TemplateView
 from home.views import home_view
 from blog.models import BlogSitemap
 
@@ -34,8 +35,8 @@ urlpatterns = [
     path(r'', home_view, name='home'),
     path(r'about/', include('about.urls')),
     path(r'blog/', include('blog.urls')),
-    path(r'sitemap.xml', sitemap, {'sitemaps': sitemaps},
-     name='django.contrib.sitemaps.views.sitemap')
+    path(r'robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path(r'sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
 ]
 
