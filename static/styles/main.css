@@ -34,11 +34,16 @@ a {
   a:hover {
     text-decoration: none;
     color: #f2766b; }
+  a span:hover {
+    color: #f2766b; }
 
 p a {
   color: #f2766b; }
   p a:hover {
     text-decoration: underline; }
+
+span {
+  font: inherit; }
 
 .pinkify {
   color: #f2766b;

@@ -4,15 +4,16 @@
 
 {% block meta %}
 <meta name="description" content="{{ post.blurb }}" />
+<meta name="author" content="{{ post.author.first_name }} {{ post.author.last_name }}">
 {% endblock meta %}
 
 {% block content %}
 
 <article class="content row">
-    <div class="col-md-12">
-        <h1>{{ post.title }}<span class="pinkify">.</span></h1>
-        <p class="post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.created|date:"d M Y" }}</p>
-        <p class="post-blurb">{{ post.blurb }}</p>
+    <div class="col-md-12" itemscope itemtype="https://schema.org/BlogPosting">
+        <h1><span itemprop="headline">{{ post.title }}</span><span class="pinkify">.</span></h1>
+        <p class="post-date"><span itemprop="author" itemscope itemtype="https://schema.org/Person">{{ post.author.first_name }} {{ post.author.last_name }}</span> - <span itemprop="dateCreated">{{ post.created|date:"d M Y" }}</span></p>
+        <p class="post-blurb" itemprop="abstract">{{ post.blurb }}</p>
         {% autoescape off %}
         <div class="post-content">{{ post.content }}</div>
         {% endautoescape %}

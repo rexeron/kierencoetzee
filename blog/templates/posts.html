@@ -9,14 +9,14 @@
 {% block content %}
 
 <article class="content row">
-    <div class="col-md-12">
+    <div class="col-md-12" itemscope itemtype="https://schema.org/Blog">
         <h1>My Blog Posts<span class="pinkify">.</span></h1>
         <p>This is a place where I try and document some useful stuff related to web development.</p>
         {% for post in posts %}
         <div class="post-snippet">
-            <h3><a href="/blog/{{ post.permalink }}">{{ post.title }}</a></h3>
-            <p class="post-date">{{ post.author.first_name }} {{ post.author.last_name }} - {{ post.created|date:"d M Y" }}</p>
-            <p>{{ post.blurb }}</p>
+            <h3><a href="/blog/{{ post.permalink }}"><span itemprop="headline">{{ post.title }}</span></a></h3>
+            <p class="post-date"><span itemprop="author" itemscope itemtype="https://schema.org/Person">{{ post.author.first_name }} {{ post.author.last_name }}</span> - <span itemprop="dateCreated">{{ post.created|date:"d M Y" }}</span></p>
+            <p itemprop="abstract">{{ post.blurb }}</p>
         </div>
         {% endfor %}
     </div>
