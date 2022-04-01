@@ -11,7 +11,9 @@ def posts_view(request):
 
 def single_view(request, permalink):
     post = Post.objects.get(permalink=permalink)
+    other_posts = Post.objects.filter(status='PUBLISHED').exclude(id=post.id).order_by('-created')[:4]
     context = {
-        'post': post
+        'post': post,
+        'posts': other_posts
     }
     return render(request, 'single.html', context)
