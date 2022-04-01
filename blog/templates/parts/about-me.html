@@ -1,0 +1,8 @@
+<article class="about-me content row">
+    <div class="col-md-12">
+        <h3>About the author<span class="pinkify">.</span></h3>
+        {% autoescape off %}
+        <p>{{ post.author.about }}</p>
+        {% endautoescape %}
+    </div>
+</article>

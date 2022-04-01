@@ -12,8 +12,12 @@ def posts_view(request):
 def single_view(request, permalink):
     post = Post.objects.get(permalink=permalink)
     other_posts = Post.objects.filter(status='PUBLISHED').exclude(id=post.id).order_by('-created')[:4]
+    page_url = f'https://kierencoetzee.com/blog/{post.permalink}'
+    page_id = post.id
     context = {
         'post': post,
-        'posts': other_posts
+        'posts': other_posts,
+        'page_url': page_url, # for disqus
+        'page_id': page_id, # for disqus
     }
     return render(request, 'single.html', context)

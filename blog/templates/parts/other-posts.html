@@ -1,0 +1,12 @@
+<article class="about-me content row">
+    <div class="col-md-12" itemscope itemtype="https://schema.org/Blog">
+        <h3>Other Posts by Kieren<span class="pinkify">.</span></h3>
+        {% for post in posts %}
+        <div class="post-snippet" itemscope itemtype="https://schema.org/BlogPosting">
+            <h4><a href="/blog/{{ post.permalink }}"><span itemprop="headline">{{ post.title }}</span></a></h4>
+            <p class="post-date"><span itemprop="author" itemscope itemtype="https://schema.org/Person">{{ post.author.first_name }} {{ post.author.last_name }}</span> - <span itemprop="dateCreated">{{ post.created|date:"d M Y" }}</span></p>
+            <meta itemprop="abstract" content="{{ post.blurb }}">
+        </div>
+        {% endfor %}
+    </div>
+</article>
