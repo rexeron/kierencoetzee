@@ -37,7 +37,7 @@ class Post(models.Model):
 
 
 class BlogSitemap(Sitemap):
-    changefreq = "never"
+    changefreq = "weekly"
     priority = 0.6
     protocol = 'https'
 
@@ -50,7 +50,7 @@ class BlogSitemap(Sitemap):
 
 class BlogStaticSitemap(Sitemap):
     priority = 0.5
-    changefreq = 'never'
+    changefreq = 'weekly'
     protocol = 'https'
 
     def items(self):

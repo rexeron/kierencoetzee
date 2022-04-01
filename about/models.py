@@ -5,7 +5,7 @@ from django.urls import reverse
 # Create your models here.
 class AboutStaticSitemap(Sitemap):
     priority = 0.5
-    changefreq = 'never'
+    changefreq = 'yearly'
     protocol = 'https'
 
     def items(self):
