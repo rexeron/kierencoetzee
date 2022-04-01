@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
 from django.conf import settings
 from .constants import POST_STATUS_CHOICES, COMMENT_STATUS_CHOICES
 
@@ -45,6 +46,18 @@ class BlogSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.last_updated
+
+
+class BlogStaticSitemap(Sitemap):
+    priority = 0.5
+    changefreq = 'never'
+    protocol = 'https'
+
+    def items(self):
+        return ['posts']
+
+    def location(self, item):
+        return reverse(item)
 
 
 class Comment(models.Model):

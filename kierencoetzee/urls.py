@@ -20,10 +20,16 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from home.views import home_view
-from blog.models import BlogSitemap
+from about.models import AboutStaticSitemap
+from blog.models import BlogSitemap, BlogStaticSitemap
+from home.models import HomeStaticSitemap
+
 
 sitemaps = {
-    'blog': BlogSitemap
+    'about_static': AboutStaticSitemap,
+    'blog': BlogSitemap,
+    'blog_static': BlogStaticSitemap,
+    'home_static': HomeStaticSitemap,
 }
 
 urlpatterns = [
