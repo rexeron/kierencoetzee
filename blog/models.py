@@ -25,6 +25,7 @@ class Post(models.Model):
     permalink = models.CharField(max_length=255, null=True)
     created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
+    meta_description = models.TextField(null=True)
 
     class Meta:
         ordering = ('title',)
@@ -58,15 +59,3 @@ class BlogStaticSitemap(Sitemap):
 
     def location(self, item):
         return reverse(item)
-
-
-class Comment(models.Model):
-    content = models.TextField()
-    status = models.CharField(max_length=32, choices=COMMENT_STATUS_CHOICES, default='PENDING')
-    created = models.DateTimeField(auto_now_add=True)
-    last_updated = models.DateTimeField(auto_now=True)
-    parent_post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
-    parent_comment_id = models.ForeignKey('Comment', on_delete=models.CASCADE, null=True, blank=True)
-
-    class Meta:
-        ordering = ('content',)
