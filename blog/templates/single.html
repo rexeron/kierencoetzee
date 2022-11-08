@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% block javascript %}
+{% include "parts/google-adsense.html" %}
+{% endblock %}
 {% block title %}{{ post.title }} - {{ post.author.first_name }} {{ post.author.last_name }}{% endblock %}
 
 {% block meta %}
